@@ -1,12 +1,15 @@
 'use client'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function HomePage() {
   const router = useRouter()
-  if (localStorage.getItem('token')) {
-    router.push('/dashboard')
-  }
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      router.push('/dashboard')
+    }
+  })
   return (
     <div className="container mx-auto mt-8">
       <h1 className="text-3xl font-bold mb-4">Welcome to FakeStore</h1>
